@@ -4,6 +4,11 @@
 
 Heavy, honest modeling on the public Telco customer churn dataset (7,043 rows, 7,032 after dropping blank TotalCharges). A model zoo, 5-fold CV, a final test used once, and a small web app (predict one customer, leaderboard, honest ceiling).
 
+## Screenshot
+![telco-churn-lab UI](assets/screenshots/ui.png)
+
+Real capture of the app running locally: the customer form, the held-out result and the 5-fold model leaderboard.
+
 ## Results (real)
 5-fold stratified CV on the 80% train part only (selection happens only here, the 20% test part is not used): stacking ensemble best by AUC (0.8481, accuracy 80.0%), then logistic regression (AUC 0.8457), soft voting, MLP, tuned HGB, random forest, HGB, extra trees. (An earlier version of this repo ran the CV on all rows including the test part; it picked the same model, and the test result below did not change.) Full table: `results/cv_results.json`.
 
