@@ -1,0 +1,23 @@
+{
+  "chosen_model": "stacking_ensemble",
+  "threshold_from_train_oof": 0.53,
+  "train_rows": 5625,
+  "test_rows": 1407,
+  "test_accuracy_at_threshold": 0.7989,
+  "test_accuracy_at_0.5": 0.7953,
+  "test_roc_auc": 0.8362,
+  "test_f1_at_0.5": 0.5921,
+  "test_precision_at_0.5": 0.6295,
+  "test_recall_at_0.5": 0.5588,
+  "confusion_at_0.5": [
+    [
+      910,
+      123
+    ],
+    [
+      165,
+      209
+    ]
+  ],
+  "majority_class_baseline_accuracy": 0.7342
+}

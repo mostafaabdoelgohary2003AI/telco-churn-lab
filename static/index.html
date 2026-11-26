@@ -1,0 +1,21 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Telco Churn Lab</title><link rel="stylesheet" href="/static/style.css"></head><body>
+<div style="background:linear-gradient(135deg,#006070,#00808c);color:#fff;padding:36px 40px"><h1 style="margin:0;font-size:2.2rem">Telco Churn Lab</h1><p style="max-width:720px">Eight models tested honestly on the public IBM/Kaggle Telco churn data (7,032 customers). Try a customer, then read the straight truth about how accurate this can be.</p></div>
+<div class="main" style="margin:0 auto;max-width:1100px;padding:24px">
+<div class="two"><div class="card"><h3 style="margin-top:0">Try a customer</h3>
+<label>Months as customer</label><input class="field" id="tenure" type="number" value="2">
+<label>Monthly charge</label><input class="field" id="mc" type="number" value="85">
+<label>Contract</label><select class="field" id="contract"><option>Month-to-month</option><option>One year</option><option>Two year</option></select>
+<label>Internet</label><select class="field" id="inet"><option>Fiber optic</option><option>DSL</option><option>No</option></select>
+<label>Payment</label><select class="field" id="pay"><option>Electronic check</option><option>Mailed check</option><option>Bank transfer (automatic)</option><option>Credit card (automatic)</option></select>
+<p><button class="btn" onclick="pred()">Predict</button></p><div id="out"></div></div>
+<div class="card"><h3 style="margin-top:0">Straight truth</h3><div id="truth"></div></div></div>
+<div class="card"><h3 style="margin-top:0">Model leaderboard (5-fold cross-validation)</h3><table><thead><tr><th>Model</th><th>Accuracy</th><th>ROC-AUC</th><th>F1</th></tr></thead><tbody id="lb"></tbody></table></div></div>
+<script>
+const $=i=>document.getElementById(i);
+async function pred(){const b={tenure:+$('tenure').value,MonthlyCharges:+$('mc').value,Contract:$('contract').value,InternetService:$('inet').value,PaymentMethod:$('pay').value};
+const r=await (await fetch('/api/predict',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b)})).json();
+$('out').innerHTML=`<h2 style="margin:8px 0">${Math.round(r.probability*100)}% chance of leaving</h2><span class="pill ${r.probability>0.5?'High':'Low'}">${r.label}</span><p>${r.common_risk_signals.length?'Common risk signals here: '+r.common_risk_signals.join('; '):'No common risk signals.'}</p>`}
+fetch('/api/metrics').then(r=>r.json()).then(m=>{const f=m.final;
+$('truth').innerHTML=`<p>On 1,407 customers the model never saw: <b>${(f.test_accuracy_at_threshold*100).toFixed(1)}%</b> accuracy, AUC ${f.test_roc_auc}. Always guessing "stays" would score ${(f.majority_class_baseline_accuracy*100).toFixed(1)}%.</p><p>It finds ${Math.round(f["test_recall_at_0.5"]*100)}% of leavers, and ${Math.round(f["test_precision_at_0.5"]*100)}% of its alarms are right.</p><p>We could not honestly reach 95%: all 8 models we tried land near 80% on this data. Reports of 95%+ on Telco data come from an extended version that includes the churn score itself, which is leakage, so we do not use it.</p>`;
+const rows=Object.entries(m.cv).sort((a,b)=>b[1].cv_roc_auc-a[1].cv_roc_auc);$('lb').innerHTML=rows.map(([k,v])=>`<tr><td>${k.replace(/_/g,' ')}</td><td>${(v.cv_accuracy*100).toFixed(1)}% ±${(v.cv_accuracy_std*100).toFixed(1)}</td><td>${v.cv_roc_auc}</td><td>${v.cv_f1}</td></tr>`).join('')})
+</script></body></html>

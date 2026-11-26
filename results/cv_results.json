@@ -1,0 +1,50 @@
+{
+  "logistic_regression": {
+    "cv_accuracy": 0.7466,
+    "cv_accuracy_std": 0.0081,
+    "cv_roc_auc": 0.8447,
+    "cv_f1": 0.6271
+  },
+  "hist_gradient_boosting": {
+    "cv_accuracy": 0.7883,
+    "cv_accuracy_std": 0.0065,
+    "cv_roc_auc": 0.8275,
+    "cv_f1": 0.5661
+  },
+  "hgb_tuned": {
+    "cv_accuracy": 0.7942,
+    "cv_accuracy_std": 0.0047,
+    "cv_roc_auc": 0.8352,
+    "cv_f1": 0.5745
+  },
+  "random_forest_balanced": {
+    "cv_accuracy": 0.7941,
+    "cv_accuracy_std": 0.0042,
+    "cv_roc_auc": 0.829,
+    "cv_f1": 0.5599
+  },
+  "extra_trees_balanced": {
+    "cv_accuracy": 0.7817,
+    "cv_accuracy_std": 0.0076,
+    "cv_roc_auc": 0.8028,
+    "cv_f1": 0.5409
+  },
+  "mlp": {
+    "cv_accuracy": 0.7959,
+    "cv_accuracy_std": 0.0099,
+    "cv_roc_auc": 0.8353,
+    "cv_f1": 0.5742
+  },
+  "stacking_ensemble": {
+    "cv_accuracy": 0.8055,
+    "cv_accuracy_std": 0.0085,
+    "cv_roc_auc": 0.8467,
+    "cv_f1": 0.6015
+  },
+  "soft_voting": {
+    "cv_accuracy": 0.7914,
+    "cv_accuracy_std": 0.0072,
+    "cv_roc_auc": 0.839,
+    "cv_f1": 0.6084
+  }
+}
