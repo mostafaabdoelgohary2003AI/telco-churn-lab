@@ -1,3 +1,5 @@
+<p align="center"><img src="assets/logo.png" width="128" alt="telco-churn-lab logo"></p>
+
 # Telco Churn Lab
 
 Heavy, honest modeling on the public Telco customer churn dataset (7,043 rows, 7,032 after dropping blank TotalCharges). A model zoo, 5-fold CV, a final test used once, and a small web app (predict one customer, leaderboard, honest ceiling).
