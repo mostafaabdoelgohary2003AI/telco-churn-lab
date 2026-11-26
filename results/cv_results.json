@@ -1,50 +1,50 @@
 {
   "logistic_regression": {
-    "cv_accuracy": 0.7466,
-    "cv_accuracy_std": 0.0081,
-    "cv_roc_auc": 0.8447,
-    "cv_f1": 0.6271
+    "cv_accuracy": 0.75,
+    "cv_accuracy_std": 0.0062,
+    "cv_roc_auc": 0.8457,
+    "cv_f1": 0.6295
   },
   "hist_gradient_boosting": {
-    "cv_accuracy": 0.7883,
-    "cv_accuracy_std": 0.0065,
-    "cv_roc_auc": 0.8275,
-    "cv_f1": 0.5661
+    "cv_accuracy": 0.786,
+    "cv_accuracy_std": 0.0025,
+    "cv_roc_auc": 0.8295,
+    "cv_f1": 0.5603
   },
   "hgb_tuned": {
-    "cv_accuracy": 0.7942,
-    "cv_accuracy_std": 0.0047,
-    "cv_roc_auc": 0.8352,
-    "cv_f1": 0.5745
+    "cv_accuracy": 0.7941,
+    "cv_accuracy_std": 0.0011,
+    "cv_roc_auc": 0.8364,
+    "cv_f1": 0.5784
   },
   "random_forest_balanced": {
-    "cv_accuracy": 0.7941,
-    "cv_accuracy_std": 0.0042,
-    "cv_roc_auc": 0.829,
-    "cv_f1": 0.5599
+    "cv_accuracy": 0.7945,
+    "cv_accuracy_std": 0.0065,
+    "cv_roc_auc": 0.8328,
+    "cv_f1": 0.5615
   },
   "extra_trees_balanced": {
-    "cv_accuracy": 0.7817,
-    "cv_accuracy_std": 0.0076,
-    "cv_roc_auc": 0.8028,
-    "cv_f1": 0.5409
+    "cv_accuracy": 0.7858,
+    "cv_accuracy_std": 0.0122,
+    "cv_roc_auc": 0.8096,
+    "cv_f1": 0.55
   },
   "mlp": {
-    "cv_accuracy": 0.7959,
-    "cv_accuracy_std": 0.0099,
-    "cv_roc_auc": 0.8353,
-    "cv_f1": 0.5742
+    "cv_accuracy": 0.7988,
+    "cv_accuracy_std": 0.0102,
+    "cv_roc_auc": 0.8405,
+    "cv_f1": 0.5837
   },
   "stacking_ensemble": {
-    "cv_accuracy": 0.8055,
-    "cv_accuracy_std": 0.0085,
-    "cv_roc_auc": 0.8467,
-    "cv_f1": 0.6015
+    "cv_accuracy": 0.8004,
+    "cv_accuracy_std": 0.0091,
+    "cv_roc_auc": 0.8481,
+    "cv_f1": 0.5917
   },
   "soft_voting": {
-    "cv_accuracy": 0.7914,
-    "cv_accuracy_std": 0.0072,
-    "cv_roc_auc": 0.839,
-    "cv_f1": 0.6084
+    "cv_accuracy": 0.7948,
+    "cv_accuracy_std": 0.006,
+    "cv_roc_auc": 0.8422,
+    "cv_f1": 0.6117
   }
 }
