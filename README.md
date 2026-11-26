@@ -22,5 +22,3 @@ Predictions are logged to SQLite (`results/predictions.db`). Built with AI pair-
 ## Files not in this repo
 The trained model file (67 MB) and the Telco CSV are not committed. Download the public Telco churn CSV into `data/Telco-Customer-Churn.csv`, then run `python -m src.benchmark` and `python -m src.final` to recreate `results/telco_model.joblib`. API tests need that model file.
 
-## CI
-The GitHub Actions workflow is stored at `ci/github-actions-ci.yml`. Copy it to `.github/workflows/ci.yml` to enable it.
